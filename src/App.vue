@@ -104,7 +104,7 @@
 </template>
 
 <script setup>
-import { reactive, computed } from 'vue'
+import { reactive, computed, watch } from 'vue'
 
 const state = reactive({
   status: 'init',
@@ -181,6 +181,16 @@ const text = computed(() => {
     return '很爽'
   } else {
     return '爽到爆炸'
+  }
+})
+
+watch(state.form, () => {
+  const data = state.form
+  if (data.workTime + data.roadTime > 24) {
+    state.form.workTime = 24 - data.roadTime
+  }
+  if (data.fishTime > data.workTime) {
+    state.form.fishTime = data.workTime
   }
 })
 
