@@ -4,7 +4,7 @@
       <p class="flex items-center"><span>工作性价比：</span><span v-if="state.status !== 'init'" class="text-xl text-red-500">{{text}}</span></p>
       <p><span>得分：</span><span v-if="state.status !== 'init'">{{result}}</span></p>
     </div>
-    <el-form class="sm:flex shadow border rounded border-gray-200 pt-8 pb-6 pr-8 bg-gray-100 sm:space-x-4" ref="form" size="mini" :model="state.form" label-width="120px">
+    <el-form class="sm:flex shadow border rounded border-gray-200 pt-8 pb-6 pr-8 bg-gray-100 sm:space-x-4" size="mini" :model="state.form" label-width="120px">
       <div class="mx-auto">
         <el-form-item label="月薪">
           <el-input-number :controls="state.controls" v-model="state.form.salary" :min="0"></el-input-number>
