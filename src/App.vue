@@ -177,7 +177,7 @@ const text = computed(() => {
   } else if (result.value < 2) {
     return '很爽'
   } else {
-    return '爽到爆'
+    return '爽到爆炸'
   }
 })
 
