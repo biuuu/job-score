@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto container flex flex-col items-center justify-center h-screen">
-    <div class="result my-2 flex space-x-6 items-center h-12">
-      <p class="flex items-center"><span>工作性价比：</span><span v-if="state.status !== 'init'" class="text-xl text-red-500">{{text}}</span></p>
+    <div class="result text-gray-700 my-2 flex space-x-6 items-center h-12">
+      <p class="flex items-center"><span>工作性价比：</span><span v-if="state.status !== 'init'" class="font-bold text-2xl text-red-500">{{text}}</span></p>
       <p><span>得分：</span><span v-if="state.status !== 'init'">{{result}}</span></p>
     </div>
     <el-form class="sm:flex shadow border rounded border-gray-200 pt-8 pb-6 pr-8 bg-gray-100 sm:space-x-4" size="mini" :model="state.form" label-width="120px">
@@ -186,6 +186,6 @@ const start = () => state.status = 'started'
 
 <style>
 .result {
-  font-family: 'Microsoft Jhenghei';
+  font-family: 宋体;
 }
 </style>
