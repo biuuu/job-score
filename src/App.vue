@@ -20,6 +20,9 @@
         </el-form-item>
       </div>
       <div>
+        <el-form-item label="每月工作天数">
+          <el-input-number :controls="state.controls" v-model="state.form.days" :min="0" :max="31"></el-input-number>
+        </el-form-item>
         <el-form-item label="学历系数">
           <el-select v-model="state.form.option1" placeholder="请选择">
             <el-option
@@ -50,6 +53,8 @@
             </el-option>
           </el-select>
         </el-form-item>
+      </div>
+      <div>
         <el-form-item label="同事环境系数">
           <el-select v-model="state.form.option4" placeholder="请选择">
             <el-option
@@ -60,8 +65,6 @@
             </el-option>
           </el-select>
         </el-form-item>
-      </div>
-      <div>
         <el-form-item label="职业资格系数">
           <el-select v-model="state.form.option5" placeholder="请选择">
             <el-option
@@ -110,6 +113,7 @@ const state = reactive({
   status: 'init',
   form: {
     salary: 7000,
+    days: 22,
     workTime: 8,
     roadTime: 1,
     fishTime: 4,
@@ -169,7 +173,7 @@ const result = computed(() => {
   const data = state.form
   const val1 = data.option2 * data.option3 * data.option4 * data.option5
   const val2 = 35 * (data.workTime + data.roadTime - data.fishTime / 2) * data.option1
-  return (data.salary / 22 * val1 / val2 * data.option6).toFixed(2)
+  return (data.salary / data.days * val1 / val2 * data.option6).toFixed(2)
 })
 
 const text = computed(() => {
@@ -200,5 +204,8 @@ const start = () => state.status = 'started'
 <style>
 .result {
   font-family: 宋体;
+}
+.el-input-number--mini {
+  width: 100% !important;
 }
 </style>
